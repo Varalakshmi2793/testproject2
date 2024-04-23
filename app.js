@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 
 const app = express();
-const port = 2050;
+const port = 2090;
 
 const connection = mysql.createConnection({
     host: 'localhost',
@@ -91,6 +91,20 @@ app.post('/tables/:tableName/records', (req, res) => {
         res.json({ message: 'Values inserted successfully', insertedRecordIds });
     });
 });
+app.get('/tables/:tableName/records', (req, res) => {
+    const { tableName } = req.params;
+    const query = `SELECT * FROM ${tableName}`;
+
+    connection.query(query, (error, results) => {
+        if (error) {
+            console.error('Error fetching records:', error);
+            res.status(500).json({ error: 'Internal server error' });
+            return;
+        }
+        res.json(results);
+    });
+});
+
 app.delete('/tables/:tableName/records/:recordId', (req, res) => {
     const { tableName, recordId } = req.params;
 
@@ -105,7 +119,6 @@ app.delete('/tables/:tableName/records/:recordId', (req, res) => {
         res.json({ message: 'Record deleted successfully' });
     });
 });
-
 
 
 app.listen(port, () => {

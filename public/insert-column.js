@@ -4,7 +4,6 @@ function fetchColumns() {
     const urlParams = new URLSearchParams(window.location.search);
     const tableName = urlParams.get('tableName');
 
-    // Display table name at the top
     const tableNameElement = document.createElement('h2');
     tableNameElement.textContent = tableName;
     document.getElementById('recordTable').appendChild(tableNameElement);
@@ -92,7 +91,7 @@ function fetchRecordsAndDisplay() {
             return response.json();
         })
         .then(records => {
-            displayRecords(records, tableName); // Pass tableName to displayRecords function
+            displayRecords(records, tableName);
         })
         .catch(error => {
             console.error('Error fetching records:', error);
@@ -140,7 +139,7 @@ function displayRecords(records, tableName) {
         deleteButton.classList.add('delete-btn');
         deleteButton.dataset.recordId = record.id; 
         deleteButton.addEventListener('click', function() {
-            deleteRecord(tableName, this.parentNode.parentNode); // Pass tableName to deleteRecord function
+            deleteRecord(tableName, this.parentNode.parentNode);
         });
         deleteButtonCell.appendChild(deleteButton);
         row.appendChild(deleteButtonCell);
