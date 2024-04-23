@@ -1,0 +1,67 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insert Values</title>
+    <style>
+        .input-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .input-row input {
+            margin-right: 10px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .delete-btn {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .delete-btn:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <h1>Insert Values into Table</h1>
+    <form id="insertForm">
+        <!-- Input fields for each column will be generated dynamically here -->
+        <div id="inputFields">
+            <!-- Initial input fields will be added dynamically here -->
+        </div>
+        
+        <button type="submit">Insert</button>
+    </form>
+
+    <h2>Inserted Records</h2>
+    <div id="recordTable">
+        <!-- Inserted records will be displayed here -->
+    </div>
+
+    <script src="insert-column.js"></script>
+</body>
+</html>

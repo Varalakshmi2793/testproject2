@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Table</title>
+</head>
+<body>
+    <h1>Create New Table</h1>
+    
+    <form id="createTableForm">
+        <label for="tableName">Table Name:</label>
+        <input type="text" id="tableName" name="tableName" required><br><br>
+
+        <div id="columnsContainer">
+            <!-- Column inputs will be added dynamically here -->
+        </div>
+
+        <button type="button" onclick="addColumn()">Add Column</button><br><br>
+
+        <button type="submit">Create Table</button>
+    </form>
+
+    <script src="create-table.js"></script>
+</body>
+</html>
